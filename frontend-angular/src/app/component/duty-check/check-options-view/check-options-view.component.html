@@ -1,0 +1,24 @@
+<form [formGroup]="checkConfigFormGroup">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Konfiguration</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div>
+        <div matTooltip="Änderungen werden sofort gespeichert" matTooltipPosition="above">
+          <mat-checkbox formControlName="checkRouteKnowledge" (change)="updateCheckOptions(checkConfigFormGroup.value)">Prüfung Streckenkunde</mat-checkbox>
+          <mat-checkbox formControlName="checkSignOnOff" (change)="updateCheckOptions(checkConfigFormGroup.value)">Prüfung An-/Abmeldung</mat-checkbox>
+          <mat-checkbox formControlName="checkContentTime" (change)="updateCheckOptions(checkConfigFormGroup.value)">Prüfung Zeiten der Elemente</mat-checkbox>
+          <mat-checkbox formControlName="checkTravelTime" (change)="updateCheckOptions(checkConfigFormGroup.value)">Prüfung Wegezeiten</mat-checkbox>
+          <mat-checkbox formControlName="checkInspectionDoc" (change)="updateCheckOptions(checkConfigFormGroup.value)">Prüfung Einsichtnahme in DU</mat-checkbox>
+          <mat-checkbox formControlName="checkGap" (change)="updateCheckOptions(checkConfigFormGroup.value)">Prüfung lückenloser Inhalt</mat-checkbox>
+          <mat-checkbox formControlName="checkWorkingTime" (change)="updateCheckOptions(checkConfigFormGroup.value)">Prüfung Arbeitszeit</mat-checkbox>
+        </div>
+        <div>
+          <mat-checkbox formControlName="sendMail" (change)="updateCheckOptions(checkConfigFormGroup.value)">Ergebnisse als Mail</mat-checkbox>
+          <mat-checkbox formControlName="showResultBeforeSending" (change)="updateCheckOptions(checkConfigFormGroup.value)">Ergebnisse vor Versenden zeigen</mat-checkbox>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</form>

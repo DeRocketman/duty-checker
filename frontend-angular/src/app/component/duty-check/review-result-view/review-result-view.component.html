@@ -1,0 +1,63 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Überprüfung</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <table mat-table [dataSource]="dutyCheckResult" class="mat-elevation-z8">
+      <ng-container matColumnDef="dutyName">
+        <th mat-header-cell *matHeaderCellDef>Dienst</th>
+        <td mat-cell *matCellDef="let element"> {{element.dutyName}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="regularStart">
+        <th mat-header-cell *matHeaderCellDef>Regel-DB</th>
+        <td mat-cell *matCellDef="let element"> {{element.regularStart}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="regularEnd">
+        <th mat-header-cell *matHeaderCellDef>Regel-DE</th>
+        <td mat-cell *matCellDef="let element"> {{element.regularEnd}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="regularLength">
+        <th mat-header-cell *matHeaderCellDef>Regeldauer</th>
+        <td mat-cell *matCellDef="let element"> {{element.regularLength}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="newDutyStart">
+        <th mat-header-cell *matHeaderCellDef>Neuer DB</th>
+        <td mat-cell *matCellDef="let element"> {{element.newDutyStart}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="startDeviation">
+        <th mat-header-cell *matHeaderCellDef>Abweichung DB</th>
+        <td mat-cell *matCellDef="let element"> {{element.startDeviation}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="newDutyEnd">
+        <th mat-header-cell *matHeaderCellDef>Neues DE</th>
+        <td mat-cell *matCellDef="let element"> {{element.newDutyEnd}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="endDeviation">
+        <th mat-header-cell *matHeaderCellDef>Abweichung DE</th>
+        <td mat-cell *matCellDef="let element"> {{element.endDeviation}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="newLength">
+        <th mat-header-cell *matHeaderCellDef>Neue Dienstlänge</th>
+        <td mat-cell *matCellDef="let element"> {{element.newLength}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="period">
+        <th mat-header-cell *matHeaderCellDef>Periode</th>
+        <td mat-cell *matCellDef="let element"> {{element.period}} </td>
+      </ng-container>
+
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row (click)="showDutyDetails(row)" *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </mat-card-content>
+</mat-card>
+
