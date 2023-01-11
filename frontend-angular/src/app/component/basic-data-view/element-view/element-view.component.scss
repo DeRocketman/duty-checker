@@ -1,0 +1,29 @@
+mat-card {
+  margin-bottom: 15px;
+}
+table {
+  width: 50%;
+  margin: auto;
+}
+form {
+  min-width: 70%;
+  width: 70%;
+  margin: auto;
+}
+button, mat-checkbox, mat-form-field {
+  margin-right: 10px;
+}
+
+.mat-row .mat-cell {
+  border-bottom: 1px solid transparent;
+  border-top: 1px solid transparent;
+  cursor: pointer;
+}
+
+.mat-row:hover .mat-cell {
+  border-color: currentColor;
+}
+
+#submit-button {
+  margin-left: 460px;
+}
