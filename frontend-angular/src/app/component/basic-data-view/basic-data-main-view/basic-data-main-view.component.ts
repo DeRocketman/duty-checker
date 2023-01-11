@@ -3,6 +3,8 @@ import {TravelTime} from "../../../shared/travel-time";
 import {Place} from "../../../shared/place";
 import {PlaceService} from "../../../service/place.service";
 import {TravelTimeService} from "../../../service/travel-time.service";
+import {DutyElement} from "../../../shared/duty-element";
+import {DutyElementService} from "../../../service/duty-element.service";
 
 @Component({
   selector: 'dutch-basic-data-main-view',
@@ -16,6 +18,7 @@ export class BasicDataMainViewComponent implements OnInit {
   constructor(
     private placeService: PlaceService,
     private travelTimeService: TravelTimeService,
+    private dutyElementService: DutyElementService,
   ) { }
   ngOnInit(): void {
     this.placeService.getAll().subscribe(data => {
@@ -29,6 +32,7 @@ export class BasicDataMainViewComponent implements OnInit {
   }
   updatePlaceList($event: Place): void {
     if ($event.id === "to-create" || !$event.id) {
+      $event.id = undefined;
       this.placeService.create($event).subscribe(
         (res) => {
           console.log(res);
@@ -39,12 +43,11 @@ export class BasicDataMainViewComponent implements OnInit {
         (res) => console.log(res)
       )
     }
-    this.ngOnChanges()
   }
 
   updateTravelTimeList($event: TravelTime): void {
-    console.log($event);
     if ($event.id === "to-create" || !$event.id) {
+      $event.id = undefined;
       this.travelTimeService.create($event).subscribe(
         (res) => {
           console.log(res);
@@ -56,7 +59,22 @@ export class BasicDataMainViewComponent implements OnInit {
         (e) => console.log(e)
       )
     }
-    this.ngOnChanges()
+  }
+
+  updateDutyElementList($event: DutyElement): void {
+    if ($event.id === "to-create" || !$event.id) {
+      $event.id = undefined;
+      this.dutyElementService.create($event).subscribe(
+        (res) => {
+          console.log(res);
+        }
+      )
+    } else {
+      this.travelTimeService.update($event).subscribe(
+        (res) => console.log(res),
+        (e) => console.log(e)
+      )
+    }
   }
 
 }

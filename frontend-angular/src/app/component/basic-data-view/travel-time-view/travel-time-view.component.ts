@@ -25,10 +25,14 @@ export class TravelTimeViewComponent implements OnChanges {
   ) {
     this.travelTimeFormGroup = fb.group({
       id: ["to-create"],
-      startPoint: [],
-      endPoint: [],
+      startPoint: fb.group({
+        id: [""]
+      }),
+      endPoint: fb.group({
+        id: [""]
+      }),
       duration: ["00:01"],
-      type: [],
+      type: [""],
       oppoDirectionEquals: [false]
     });
   }

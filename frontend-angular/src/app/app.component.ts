@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {StorageService} from "./service/storage.service";
 import {Router} from "@angular/router";
 import {UserService} from "./service/user.service";
@@ -10,7 +10,7 @@ import {User} from "./shared/user";
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title: string = ""
   signedUser?: User
   signedUserName: string = "Du! Schön das du da bist :-)";
@@ -30,6 +30,7 @@ export class AppComponent {
       }
     }
   }
+
   signOut(): void {
     this.authService.signOut().subscribe(
       (res) => {
@@ -46,4 +47,5 @@ export class AppComponent {
     this.storageService.clean();
     this.router.navigate([''])
   }
+
 }
