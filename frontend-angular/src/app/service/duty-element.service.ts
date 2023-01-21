@@ -31,7 +31,7 @@ export class DutyElementService {
   }
   delete(id: string): Observable<any> {
     return this.http.delete(
-      `${BASIC_URL}/duty-element/${id}`,
+      `${BASIC_URL}/duty-element/delete/${id}`,
       { responseType: 'text' }
     );
   }

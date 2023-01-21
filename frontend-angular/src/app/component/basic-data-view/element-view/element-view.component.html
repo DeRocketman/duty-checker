@@ -23,7 +23,15 @@
       <form [formGroup]="dutyElementFormGroup" (ngSubmit)="submitDutyElementFormData(dutyElementFormGroup.value)">
         <mat-form-field appearance="standard">
           <mat-label>Name</mat-label>
-          <input type="text" matInput formControlName="name" [errorStateMatcher]="matcher" placeholder="Externe Nummer">
+          <input type="text" matInput formControlName="name" [errorStateMatcher]="matcher" placeholder="Name des Elements">
+          <mat-error *ngIf="dutyElementFormGroup.get('name')?.hasError('required')">
+            Name ist <strong>notwendig</strong>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="standard">
+          <mat-label>Name in Beschreibung</mat-label>
+          <input type="text" matInput formControlName="descriptionName" [errorStateMatcher]="matcher" placeholder="Name in Beschreibung">
           <mat-error *ngIf="dutyElementFormGroup.get('name')?.hasError('required')">
             Name ist <strong>notwendig</strong>
           </mat-error>
@@ -34,13 +42,16 @@
           <input matInput type="time" formControlName="defaultDuration" min="00:01" max="12:45" pattern="[0-9]{2}:[0-9]{2}">
         </mat-form-field>
 
-        <mat-checkbox formControlName="placeChange">Ortswechsel erlaubt</mat-checkbox>
+        <mat-checkbox formControlName="placeChangeAllowed">Ortswechsel erlaubt</mat-checkbox>
 
         <button mat-fab id="submit-button" type="submit" mat-raised-button color="primary">
           <mat-icon>save</mat-icon>
         </button>
         <button mat-fab class="buttons" type="button" color="accent">
           <mat-icon>cancel</mat-icon>
+        </button>
+        <button mat-fab class="buttons" type="button" color="warn" (click)="deleteElement(dutyElementFormGroup.value)">
+          <mat-icon>delete</mat-icon>
         </button>
       </form>
     </div>

@@ -57,6 +57,9 @@
         <button mat-fab class="buttons" type="button" color="accent">
           <mat-icon>cancel</mat-icon>
         </button>
+        <button mat-fab class="buttons" type="button" color="warn" (click)="deleteElement(placeFormGroup.value)">
+          <mat-icon>delete</mat-icon>
+        </button>
       </form>
     </div>
   </mat-card-content>

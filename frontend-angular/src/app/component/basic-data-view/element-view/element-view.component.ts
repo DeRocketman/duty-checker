@@ -17,8 +17,8 @@ export class DutyElementMatcher implements ErrorStateMatcher {
 })
 export class ElementViewComponent implements OnInit {
   dutyElementFormGroup: FormGroup;
-  displayedColumns: string[] = ["name", "defaultDuration", "placeChange"]
-  displayedHeader: string[] = ["Name", "Standarddauer", "Ortswechsel"]
+  displayedColumns: string[] = ["name", "descriptionName" ,"defaultDuration","placeChangeAllowed"]
+  displayedHeader: string[] = ["Name", "Name in Beschreibung", "Standardzeit","Ortswechsel"]
   dutyElementList: DutyElement[] = [];
   matcher = new DutyElementMatcher();
   constructor(
@@ -28,8 +28,9 @@ export class ElementViewComponent implements OnInit {
     this.dutyElementFormGroup = this.fb.group({
       id: ["to-create"],
       name: ["", Validators.required],
+      descriptionName: ["", Validators.required],
       defaultDuration: ["00:00", Validators.required],
-      placeChange: [true]
+      placeChangeAllowed: [false]
     })
   }
   ngOnInit(): void {
@@ -37,6 +38,14 @@ export class ElementViewComponent implements OnInit {
   }
   editElement(row: DutyElement) {
     this.dutyElementFormGroup.patchValue(row);
+  }
+
+  deleteElement(data: DutyElement) {
+    if (data.id != "to-create" && data.id) {
+      this.dutyElementService.delete(data.id).subscribe(
+        this.ngOnInit
+      )
+    }
   }
   submitDutyElementFormData(data: DutyElement): void {
       if (data.id == "to-create" || data.id == undefined) {

@@ -6,11 +6,4 @@ export interface SetOfRules {
   name?: string,
   breakTimeSet?: BreakTimeSet,
   workingTimeSet?: WorkingTimeSet,
-  validMonday?: boolean,
-  validTuesday?: boolean,
-  validWednesday?: boolean,
-  validThursday?: boolean,
-  validFriday?: boolean,
-  validSaturday?: boolean,
-  validSunday?: boolean,
 }

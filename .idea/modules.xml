@@ -5,6 +5,8 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/backend-restapi-spring.main.iml" filepath="$PROJECT_DIR$/.idea/modules/backend-restapi-spring.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/duty-checker.iml" filepath="$PROJECT_DIR$/duty-checker.iml" />
       <module fileurl="file://$PROJECT_DIR$/frontend-angular.iml" filepath="$PROJECT_DIR$/frontend-angular.iml" />
+      <module fileurl="file://$PROJECT_DIR$/frontend-react.iml" filepath="$PROJECT_DIR$/frontend-react.iml" />
+      <module fileurl="file://$PROJECT_DIR$/frontend-vue.iml" filepath="$PROJECT_DIR$/frontend-vue.iml" />
     </modules>
   </component>
 </project>

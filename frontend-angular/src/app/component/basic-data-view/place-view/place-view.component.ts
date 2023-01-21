@@ -44,6 +44,10 @@ export class PlaceViewComponent implements OnInit, OnChanges {
   ngOnChanges(): void {
     this.placeService.getAll().subscribe(res => this.placeList = res);
   }
+
+  deleteElement(formData: Place) {
+
+  }
   submitPlaceFormData(formData: Place) {
     this.submitPlaces.emit(formData);
     this.placeFormGroup.reset();
