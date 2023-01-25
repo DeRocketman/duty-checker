@@ -31,6 +31,9 @@ import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatTooltipModule} from "@angular/material/tooltip";
 import {MatStepperModule} from "@angular/material/stepper";
 import { ElementViewComponent } from './component/basic-data-view/element-view/element-view.component';
+import { RuleSetCreateComponent } from './component/rule-set-view/rule-set-create/rule-set-create.component';
+import { RuleSetEditComponent } from './component/rule-set-view/rule-set-edit/rule-set-edit.component';
+import { RuleSetFormComponent } from './component/rule-set-view/rule-set-form/rule-set-form.component';
 
 
 @NgModule({
@@ -47,6 +50,9 @@ import { ElementViewComponent } from './component/basic-data-view/element-view/e
     CheckOptionsViewComponent,
     ReviewResultViewComponent,
     ElementViewComponent,
+    RuleSetCreateComponent,
+    RuleSetEditComponent,
+    RuleSetFormComponent,
   ],
   imports: [
     AppRoutingModule,

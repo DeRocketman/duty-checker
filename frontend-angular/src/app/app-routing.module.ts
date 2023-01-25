@@ -7,6 +7,8 @@ import {RuleSetMainViewComponent} from "./component/rule-set-view/rule-set-main-
 import {AdminMainViewComponent} from "./component/admin-view/admin-main-view/admin-main-view.component";
 import {BasicDataMainViewComponent} from "./component/basic-data-view/basic-data-main-view/basic-data-main-view.component";
 import {AuthGuard} from "./helper/auth.guard";
+import {RuleSetCreateComponent} from "./component/rule-set-view/rule-set-create/rule-set-create.component";
+import {RuleSetEditComponent} from "./component/rule-set-view/rule-set-edit/rule-set-edit.component";
 
 const routes: Routes = [
   { path: '', redirectTo: 'sign-in', pathMatch: 'full'},
@@ -14,6 +16,8 @@ const routes: Routes = [
   { path: 'sign-up', component: SignUpMainViewComponent},
   { path: 'duty-check', component: DutyCheckMainViewComponent, canActivate:[AuthGuard]},
   { path: 'rule-set', component: RuleSetMainViewComponent, canActivate:[AuthGuard]},
+  { path: 'rule-set/create', component: RuleSetCreateComponent, canActivate:[AuthGuard]},
+  { path: 'rule-set/edit/:id', component: RuleSetEditComponent, canActivate:[AuthGuard]},
   { path: 'admin', component: AdminMainViewComponent, canActivate:[AuthGuard]},
   { path: 'basic-data', component: BasicDataMainViewComponent, canActivate:[AuthGuard]},
 ];

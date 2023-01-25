@@ -1,3 +1,5 @@
+import {WeekSetOfRules} from "./week-set-of-rules";
+
 export interface CheckOptions {
   id?: string,
   checkRouteKnowledge?: boolean,
@@ -10,5 +12,5 @@ export interface CheckOptions {
   checkGap?: boolean,
   checkWorkingTime?: boolean,
   checkPlaceUse?: boolean,
-
+  defaultWeekSet?: WeekSetOfRules,
 }

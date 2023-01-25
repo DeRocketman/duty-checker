@@ -1,1 +1,15 @@
-<p>rule-set-main-view works!</p>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Regelsatz</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div *ngIf="weekSetOfRulesList.length === 0">
+      Keine Regelsätze angelegt...
+    </div>
+    <div>
+      <button mat-fab class="fab" routerLink="create" routerLinkActive="active" color="primary">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+  </mat-card-content>
+</mat-card>
