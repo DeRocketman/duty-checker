@@ -1,8 +1,6 @@
 import {Component, EventEmitter, Input, OnChanges, OnInit, Output} from '@angular/core';
 import {WeekSetOfRules} from "../../../shared/week-set-of-rules";
 import {FormArray, FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, Validators} from "@angular/forms";
-import {SetOfRules} from "../../../shared/set-of-rules";
-import {BreakTimeRule} from "../../../shared/break-time-rule";
 import {ErrorStateMatcher} from "@angular/material/core";
 
 export class DutyElementMatcher implements ErrorStateMatcher {
@@ -18,6 +16,7 @@ export class DutyElementMatcher implements ErrorStateMatcher {
 })
 export class RuleSetFormComponent implements OnChanges {
   ruleSetFormGroup: FormGroup;
+  weekDayCheckArray: boolean[] = [];
   @Input() ruleSet?: WeekSetOfRules;
   @Output() submitRuleSet = new EventEmitter<WeekSetOfRules>();
 
@@ -29,6 +28,7 @@ export class RuleSetFormComponent implements OnChanges {
     })
     this.addSetOfRules();
     this.addBreakTimeRules(0);
+    this.checkWeekDay();
   }
 
   ngOnChanges(): void {
@@ -86,6 +86,7 @@ export class RuleSetFormComponent implements OnChanges {
   }
   addSetOfRules(): void {
     this.setOfRulesWeekList.push(this.newSetOfRules());
+    this.checkWeekDay()
   }
 
   removeSetOfRules(index: number) {
@@ -107,6 +108,33 @@ export class RuleSetFormComponent implements OnChanges {
 
   removeBreakTimeRules(setIndex: number, breakTimeIndex: number) {
     this.getBreakTimeRules(setIndex).removeAt(breakTimeIndex);
+  }
+
+  checkWeekDay(): void {
+    this.weekDayCheckArray = [false, false, false, false, false, false, false];
+    for (let setOfRules of this.setOfRulesWeekList.value) {
+      if (setOfRules.validMonday) {
+        this.weekDayCheckArray[0] = true;
+      }
+      if (setOfRules.validTuesday) {
+        this.weekDayCheckArray[1] = true;
+      }
+      if (setOfRules.validWednesday) {
+        this.weekDayCheckArray[2] = true;
+      }
+      if (setOfRules.validThursday) {
+        this.weekDayCheckArray[3] = true;
+      }
+      if (setOfRules.validFriday) {
+        this.weekDayCheckArray[4] = true;
+      }
+      if (setOfRules.validSaturday) {
+        this.weekDayCheckArray[5] = true;
+      }
+      if (setOfRules.validSunday) {
+        this.weekDayCheckArray[6] = true;
+      }
+    }
   }
 
   onSubmit(ruleSet: WeekSetOfRules) {

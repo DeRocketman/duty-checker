@@ -13,13 +13,13 @@
             Name ist <strong>notwendig</strong>
           </mat-error>
         </mat-form-field>
-        <button mat-fab type="button" [disabled]="false" color="accent">Mo</button>
-        <button mat-fab type="button" [disabled]="false" color="accent">Di</button>
-        <button mat-fab type="button" [disabled]="false" color="accent">Mi</button>
-        <button mat-fab type="button" [disabled]="false" color="accent">Do</button>
-        <button mat-fab type="button" [disabled]="false" color="accent">Fr</button>
-        <button mat-fab type="button" [disabled]="false" color="accent">Sa</button>
-        <button mat-fab type="button" [disabled]="false" color="accent">So</button>
+        <button mat-fab type="button" [disabled]=!weekDayCheckArray[0] color="accent">Mo</button>
+        <button mat-fab type="button" [disabled]=!weekDayCheckArray[1] color="accent">Di</button>
+        <button mat-fab type="button" [disabled]=!weekDayCheckArray[2] color="accent">Mi</button>
+        <button mat-fab type="button" [disabled]=!weekDayCheckArray[3] color="accent">Do</button>
+        <button mat-fab type="button" [disabled]=!weekDayCheckArray[4] color="accent">Fr</button>
+        <button mat-fab type="button" [disabled]=!weekDayCheckArray[5] color="accent">Sa</button>
+        <button mat-fab type="button" [disabled]=!weekDayCheckArray[6] color="accent">So</button>
       </mat-card>
       <mat-card>
         <div formArrayName="setOfRulesWeekList" *ngFor="let setOfRules of setOfRulesWeekList.controls; index as i">
@@ -29,19 +29,24 @@
                 <mat-label>Name des Satzes</mat-label>
                 <input matInput type="text" formControlName="name">
               </mat-form-field>
-              <mat-checkbox formControlName="validMonday">Montag</mat-checkbox>
-              <mat-checkbox formControlName="validTuesday">Dienstag</mat-checkbox>
-              <mat-checkbox formControlName="validWednesday">Mittwoch</mat-checkbox>
-              <mat-checkbox formControlName="validThursday">Donnerstag</mat-checkbox>
-              <mat-checkbox formControlName="validFriday">Freitag</mat-checkbox>
-              <mat-checkbox formControlName="validSaturday">Samstag</mat-checkbox>
-              <mat-checkbox formControlName="validSunday">Sonntag</mat-checkbox>
+              <mat-checkbox formControlName="validMonday" (change)="checkWeekDay()">Montag</mat-checkbox>
+              <mat-checkbox formControlName="validTuesday" (change)="checkWeekDay()">Dienstag</mat-checkbox>
+              <mat-checkbox formControlName="validWednesday" (change)="checkWeekDay()">Mittwoch</mat-checkbox>
+              <mat-checkbox formControlName="validThursday" (change)="checkWeekDay()">Donnerstag</mat-checkbox>
+              <mat-checkbox formControlName="validFriday" (change)="checkWeekDay()">Freitag</mat-checkbox>
+              <mat-checkbox formControlName="validSaturday" (change)="checkWeekDay()">Samstag</mat-checkbox>
+              <mat-checkbox formControlName="validSunday" (change)="checkWeekDay()">Sonntag</mat-checkbox>
 
               <button mat-fab type="button" (click)="removeSetOfRules(i)" color="warn">
                 <mat-icon>remove</mat-icon>
               </button>
             </div>
+            <mat-divider></mat-divider>
             <div formGroupName="workingTimeSet">
+              <mat-card-header>
+                <mat-card-title>Arbeitszeitregeln</mat-card-title>
+              </mat-card-header>
+
               <mat-form-field appearance="standard">
                 <mat-label>Min. bezahlte Zeit</mat-label>
                 <input matInput type="time" formControlName="payedTimeMin" min="00:01" max="12:45" pattern="[0-9]{2}:[0-9]{2}">
@@ -67,7 +72,12 @@
                 <input matInput type="time" formControlName="drivingTimeMax" min="00:01" max="12:45" pattern="[0-9]{2}:[0-9]{2}">
               </mat-form-field>
             </div>
+            <mat-divider></mat-divider>
+
             <div formGroupName="breakTimeSet">
+              <mat-card-header>
+                <mat-card-title>Pausenregeln</mat-card-title>
+              </mat-card-header>
               <div>
                 <mat-form-field appearance="standard">
                   <mat-label>Min. Kurzpausenzeit </mat-label>
@@ -131,6 +141,7 @@
             </div>
           </div>
         </div>
+        <mat-divider></mat-divider>
         <div>
           <button mat-fab type="button" (click)="addSetOfRules()">
             <mat-icon>add</mat-icon>
