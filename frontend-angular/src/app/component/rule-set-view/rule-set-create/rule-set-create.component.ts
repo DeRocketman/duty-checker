@@ -8,7 +8,6 @@ import {WeekSetOfRulesService} from "../../../service/week-set-of-rules.service"
   styleUrls: ['./rule-set-create.component.scss']
 })
 export class RuleSetCreateComponent implements OnInit {
-
   constructor(
     private weekSetOfRulesService: WeekSetOfRulesService
   ) { }

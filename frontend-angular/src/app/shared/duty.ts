@@ -10,5 +10,6 @@ export interface Duty {
   breakTime?: string,
   payedTime?: string,
   totalTime?: string,
+  dutyListLength?: number,
   descriptions?: DutyDescription[]
 }

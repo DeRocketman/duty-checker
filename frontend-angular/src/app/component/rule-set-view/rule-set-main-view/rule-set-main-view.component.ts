@@ -8,6 +8,8 @@ import {WeekSetOfRules} from "../../../shared/week-set-of-rules";
   styleUrls: ['./rule-set-main-view.component.scss']
 })
 export class RuleSetMainViewComponent implements OnInit {
+  displayedColumns: string[] = ["name","validDays", "payedTime", "bruttoTime", "drivingTimeMax", "shortBreakTime",
+    "shortBreakCount", "breakTime", "mainBreakLocation", "breakTimeRulesLength"]
   weekSetOfRulesList: WeekSetOfRules[] = [];
   constructor(private weekSetOfRulesService: WeekSetOfRulesService) { }
 

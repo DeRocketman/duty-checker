@@ -6,6 +6,94 @@
     <div *ngIf="weekSetOfRulesList.length === 0">
       Keine Regelsätze angelegt...
     </div>
+    <div *ngFor="let weekRuleSet of weekSetOfRulesList; index as i">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Name: {{weekRuleSet.name}}</mat-card-title>
+          <mat-card-subtitle>Anzahl d. Regelsets: {{weekRuleSet.setOfRulesWeekList?.length}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-divider></mat-divider>
+        <mat-card-content *ngIf="weekRuleSet.setOfRulesWeekList">
+          <table mat-table [dataSource]="weekRuleSet.setOfRulesWeekList" class="mat-elevation-z8">
+            <ng-container matColumnDef="name">
+              <th mat-header-cell *matHeaderCellDef>Name</th>
+              <td mat-cell *matCellDef="let ruleSet">{{ruleSet.name}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="validDays">
+              <th mat-header-cell *matHeaderCellDef>Wochentage gültig</th>
+              <td mat-cell *matCellDef="let ruleSet">
+                <mat-icon *ngIf="ruleSet.validMonday">check</mat-icon>
+                <mat-icon *ngIf="!ruleSet.validMonday">cancel</mat-icon>
+                <mat-icon *ngIf="ruleSet.validTuesday">check</mat-icon>
+                <mat-icon *ngIf="!ruleSet.validTuesday">cancel</mat-icon>
+                <mat-icon *ngIf="ruleSet.validWednesday">check</mat-icon>
+                <mat-icon *ngIf="!ruleSet.validWednesday">cancel</mat-icon>
+                <mat-icon *ngIf="ruleSet.validThursday">check</mat-icon>
+                <mat-icon *ngIf="!ruleSet.validThursday">cancel</mat-icon>
+                <mat-icon *ngIf="ruleSet.validFriday">check</mat-icon>
+                <mat-icon *ngIf="!ruleSet.validFriday">cancel</mat-icon>
+                <mat-icon *ngIf="ruleSet.validSaturday">check</mat-icon>
+                <mat-icon *ngIf="!ruleSet.validSaturday">cancel</mat-icon>
+                <mat-icon *ngIf="ruleSet.validSunday">check</mat-icon>
+                <mat-icon *ngIf="!ruleSet.validSunday">cancel</mat-icon>
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="payedTime">
+              <th mat-header-cell *matHeaderCellDef>Bezahlte Zeit</th>
+              <td mat-cell *matCellDef="let ruleSet">{{ruleSet.workingTimeSet.payedTimeMin+"-"+ruleSet.workingTimeSet.payedTimeMax}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="bruttoTime">
+              <th mat-header-cell *matHeaderCellDef>Brutto-Zeit</th>
+              <td mat-cell *matCellDef="let ruleSet">{{ruleSet.workingTimeSet.bruttoTimeMin +"-"+ruleSet.workingTimeSet.bruttoTimeMax}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="drivingTimeMax">
+              <th mat-header-cell *matHeaderCellDef>Max. Lenkzeit</th>
+              <td mat-cell *matCellDef="let ruleSet">{{ruleSet.workingTimeSet.drivingTimeMax}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="shortBreakTime">
+              <th mat-header-cell *matHeaderCellDef>Kurzpausenzeit</th>
+              <td mat-cell *matCellDef="let ruleSet">{{ruleSet.breakTimeSet.shortBreakTimeMin+"-"+ruleSet.breakTimeSet.shortBreakTimeMax}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="shortBreakCount">
+              <th mat-header-cell *matHeaderCellDef>Kurzpausen Anzahl</th>
+              <td mat-cell *matCellDef="let ruleSet">{{ruleSet.breakTimeSet.shortBreakCount}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="breakTime">
+              <th mat-header-cell *matHeaderCellDef>Pausenzeit</th>
+              <td mat-cell *matCellDef="let ruleSet">{{ruleSet.breakTimeSet.breakTimeMin +"-"+ruleSet.breakTimeSet.breakTimeMax}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="mainBreakLocation">
+              <th mat-header-cell *matHeaderCellDef>Pausenlage in %</th>
+              <td mat-cell *matCellDef="let ruleSet">{{ruleSet.breakTimeSet.startMainBreakLocation +"-"+ruleSet.breakTimeSet.endMainBreakLocation}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="breakTimeRulesLength">
+              <th mat-header-cell *matHeaderCellDef>Weitere Pausenregeln</th>
+              <td mat-cell *matCellDef="let ruleSet">{{ruleSet.breakTimeSet.breakTimeRules.length}}</td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+          <div>
+            <button mat-fab class="fab" routerLink="edit" routerLinkActive="active" color="accent">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-fab class="fab" color="warn">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
     <div>
       <button mat-fab class="fab" routerLink="create" routerLinkActive="active" color="primary">
         <mat-icon>add</mat-icon>

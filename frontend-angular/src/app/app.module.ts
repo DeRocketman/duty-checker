@@ -34,6 +34,9 @@ import { ElementViewComponent } from './component/basic-data-view/element-view/e
 import { RuleSetCreateComponent } from './component/rule-set-view/rule-set-create/rule-set-create.component';
 import { RuleSetEditComponent } from './component/rule-set-view/rule-set-edit/rule-set-edit.component';
 import { RuleSetFormComponent } from './component/rule-set-view/rule-set-form/rule-set-form.component';
+import { DepartmantViewComponent } from './component/basic-data-view/departmant-view/departmant-view.component';
+import { RouteKnowledgeViewComponent } from './component/basic-data-view/route-knowledge-view/route-knowledge-view.component';
+import { RegularDutyViewComponent } from './component/basic-data-view/regular-duty-view/regular-duty-view.component';
 
 
 @NgModule({
@@ -53,6 +56,9 @@ import { RuleSetFormComponent } from './component/rule-set-view/rule-set-form/ru
     RuleSetCreateComponent,
     RuleSetEditComponent,
     RuleSetFormComponent,
+    DepartmantViewComponent,
+    RouteKnowledgeViewComponent,
+    RegularDutyViewComponent,
   ],
   imports: [
     AppRoutingModule,

@@ -67,7 +67,7 @@ export class RuleSetFormComponent implements OnChanges {
         id: ["to-create"],
         shortBreakTimeMin: ["00:10", Validators.required],
         shortBreakTimeMax: ["00:14", Validators.required],
-        shortBreakTimeCount: [1, Validators.required],
+        shortBreakCount: [1, Validators.required],
         breakTimeMin: ["00:15", Validators.required],
         breakTimeMax: ["00:45", Validators.required],
         startMainBreakLocation: [33],
@@ -138,7 +138,6 @@ export class RuleSetFormComponent implements OnChanges {
   }
 
   onSubmit(ruleSet: WeekSetOfRules) {
-
     this.submitRuleSet.emit(ruleSet);
   }
 
