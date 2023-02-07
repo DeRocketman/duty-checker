@@ -13,9 +13,7 @@
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
-    <button mat-fab type="button">
-      <input type="file" (change)="importRegularDuties($event)">
-      <mat-icon>add</mat-icon>
-    </button>
+    <mat-label>Regeldienste speichern</mat-label>
+    <input type="file" (change)="importRegularDuties($event)" accept=".csv">
   </mat-card-content>
 </mat-card>
