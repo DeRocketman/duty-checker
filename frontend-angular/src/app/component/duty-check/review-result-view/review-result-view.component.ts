@@ -3,11 +3,11 @@ import {DutyCheckResultRow} from "../../../shared/duty-check-result-row";
 import {Duty} from "../../../shared/duty";
 
 const ELEMENT_DATA : DutyCheckResultRow[] = [
-  {dutyName: "670:F", regularStart: "10:00", regularEnd: "18:30", regularLength: "08:30", newDutyStart: "11:00", startDeviation: "01:00 später", newDutyEnd: "18:30", endDeviation: "00:00", newLength: "07:30", period: "09.10.2023-09.10.2023"},
-  {dutyName: "673:F", regularStart: "10:00", regularEnd: "18:30", regularLength: "08:30", newDutyStart: "11:00", startDeviation: "01:00 später", newDutyEnd: "18:30", endDeviation: "00:00", newLength: "07:30", period: "09.10.2023-09.10.2023"},
-  {dutyName: "674:F", regularStart: "10:00", regularEnd: "18:30", regularLength: "08:30", newDutyStart: "11:00", startDeviation: "01:00 später", newDutyEnd: "18:30", endDeviation: "00:00", newLength: "07:30", period: "09.10.2023-09.10.2023"},
-  {dutyName: "680:F", regularStart: "10:00", regularEnd: "18:30", regularLength: "08:30", newDutyStart: "11:00", startDeviation: "01:00 später", newDutyEnd: "18:30", endDeviation: "00:00", newLength: "07:30", period: "09.10.2023-09.10.2023"},
-  {dutyName: "681:F", regularStart: "10:00", regularEnd: "18:30", regularLength: "08:30", newDutyStart: "11:00", startDeviation: "01:00 später", newDutyEnd: "18:30", endDeviation: "00:00", newLength: "07:30", period: "09.10.2023-09.10.2023"}
+  {dutyName: "670:F", regularStart: "10:00", regularEnd: "18:30", regularLength: "08:30", newDutyStart: "11:00", startDeviation: "01:00 später", newDutyEnd: "18:30", endDeviation: "00:00", newLength: "07:30", period: "09.10.2023-09.10.2023" ,newRouteKnowledges: [], foundErrors: 0, dutyErrors: []},
+  {dutyName: "673:F", regularStart: "10:00", regularEnd: "18:30", regularLength: "08:30", newDutyStart: "11:00", startDeviation: "01:00 später", newDutyEnd: "18:30", endDeviation: "00:00", newLength: "07:30", period: "09.10.2023-09.10.2023" ,newRouteKnowledges: [], foundErrors: 0, dutyErrors: []},
+  {dutyName: "674:F", regularStart: "10:00", regularEnd: "18:30", regularLength: "08:30", newDutyStart: "11:00", startDeviation: "01:00 später", newDutyEnd: "18:30", endDeviation: "00:00", newLength: "07:30", period: "09.10.2023-09.10.20t3" ,newRouteKnowledges: [], foundErrors: 0, dutyErrors: []},
+  {dutyName: "680:F", regularStart: "10:00", regularEnd: "18:30", regularLength: "08:30", newDutyStart: "11:00", startDeviation: "01:00 später", newDutyEnd: "18:30", endDeviation: "00:00", newLength: "07:30", period: "09.10.2023-09.10.2023" ,newRouteKnowledges: [], foundErrors: 0, dutyErrors: []},
+  {dutyName: "681:F", regularStart: "10:00", regularEnd: "18:30", regularLength: "08:30", newDutyStart: "11:00", startDeviation: "01:00 später", newDutyEnd: "18:30", endDeviation: "00:00", newLength: "07:30", period: "09.10.2023-09.10.2023" ,newRouteKnowledges: [], foundErrors: 0, dutyErrors: []},
 ]
 @Component({
   selector: 'dutch-review-result-view',

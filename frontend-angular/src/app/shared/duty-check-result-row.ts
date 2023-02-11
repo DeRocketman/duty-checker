@@ -1,3 +1,5 @@
+import {RouteKnowledge} from "./route-knowledge";
+
 export interface DutyCheckResultRow {
   dutyName: string,
   regularStart: string,
@@ -9,4 +11,7 @@ export interface DutyCheckResultRow {
   endDeviation: string,
   newLength: string,
   period: string,
+  newRouteKnowledges?: RouteKnowledge[],
+  foundErrors?: number;
+  dutyErrors: String[];
 }

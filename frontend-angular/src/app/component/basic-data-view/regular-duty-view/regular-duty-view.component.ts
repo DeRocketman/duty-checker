@@ -13,7 +13,7 @@ export class RegularDutyViewComponent implements OnInit {
   headerColumns: string[] = ["Name", "Dienstbeginn", "Dienstende", "Pausenlänge", "Bezahlte Zeit", "Brutto Zeit", "Anzahl d. Beschr."]
   regularDuties: Duty[] = [];
 
-  constructor(private dutyService: DutyService, private http: HttpClient) { }
+  constructor(private dutyService: DutyService) { }
 
   ngOnInit(): void {
     this.dutyService.getAll().subscribe(
@@ -33,20 +33,22 @@ export class RegularDutyViewComponent implements OnInit {
       let headers = allTextLines[0].split(";")
       console.log(headers)
 
-      let tarrR = [];
+      let dutyData = [];
 
-      let arrl = allTextLines.length;
       let rows = [];
-      for(let i = 1; i < arrl; i++){
+      for(let i = 1; i < allTextLines.length; i++){
         rows.push(allTextLines[i].split(';'));
       }
       console.log(rows);
-      for (let j = 0; j < arrl; j++) {
-        tarrR.push(rows[j]);
+      for (let j = 0; j < allTextLines.length; j++) {
+        dutyData.push(rows[j]);
       }
-      console.log(tarrR);
-      //Push rows to array variable
-
+      for (let i = 0; i<dutyData.length-1; i++) {
+        let descriptionArray = dutyData[i];
+        for (let j = 0; j<descriptionArray.length; j++) {
+          // TODO: Do somthing with Data
+        }
+      }
     }
   }
 }
