@@ -15,9 +15,8 @@ import RuleSetEditView from "./components/rule-set-view/rule-set-edit-view";
 export default function App() {
     return (
         <Router>
-            <MainMenuView />
             <Routes>
-                <Route path="/" element={<SignInMainView />} />
+                <Route path="/" element={<SignInMainView></SignInMainView>} />
                 <Route path="/duty-check" element={<DutyCheckMainView />} />
                 <Route path="/rule-set" element={<RuleSetMainView />} />
                 <Route path="/rule-set/create" element={<RuleSetCreateView/>} />
