@@ -8,6 +8,9 @@ import RuleSetMainView from "./components/rule-set-view/rule-set-main-view";
 import AdminMainView from "./components/admin-view/admin-main-view";
 import MainMenuView from "./components/navigation/main-menu-view";
 import SignUpMainView from "./components/sign-up-view/sign-up-main-view";
+import RuleSetCreateView from "./components/rule-set-view/rule-set-create-view";
+import RuleSetEditView from "./components/rule-set-view/rule-set-edit-view";
+
 
 export default function App() {
     return (
@@ -17,6 +20,8 @@ export default function App() {
                 <Route path="/" element={<SignInMainView />} />
                 <Route path="/duty-check" element={<DutyCheckMainView />} />
                 <Route path="/rule-set" element={<RuleSetMainView />} />
+                <Route path="/rule-set/create" element={<RuleSetCreateView/>} />
+                <Route path="/rule-set/edit/:id" element={<RuleSetEditView/>} />
                 <Route path="/basic-data" element={<BasicDataMainView />} />
                 <Route path="/admin" element={<AdminMainView />} />
                 <Route path="/sign-up" element={<SignUpMainView />} />

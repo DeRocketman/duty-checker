@@ -9,6 +9,7 @@ import {BasicDataMainViewComponent} from "./component/basic-data-view/basic-data
 import {AuthGuard} from "./helper/auth.guard";
 import {RuleSetCreateComponent} from "./component/rule-set-view/rule-set-create/rule-set-create.component";
 import {RuleSetEditComponent} from "./component/rule-set-view/rule-set-edit/rule-set-edit.component";
+import {AdminGuard} from "./helper/admin.guard";
 
 const routes: Routes = [
   { path: '', redirectTo: 'sign-in', pathMatch: 'full'},
@@ -18,7 +19,7 @@ const routes: Routes = [
   { path: 'rule-set', component: RuleSetMainViewComponent, canActivate:[AuthGuard]},
   { path: 'rule-set/create', component: RuleSetCreateComponent, canActivate:[AuthGuard]},
   { path: 'rule-set/edit/:id', component: RuleSetEditComponent, canActivate:[AuthGuard]},
-  { path: 'admin', component: AdminMainViewComponent, canActivate:[AuthGuard]},
+  { path: 'admin', component: AdminMainViewComponent, canActivate:[AuthGuard, AdminGuard]},
   { path: 'basic-data', component: BasicDataMainViewComponent, canActivate:[AuthGuard]},
 ];
 

@@ -36,11 +36,11 @@ export default class SignInMainView extends Component<Props, State> {
             this.setState({ redirect: "/duty-check" });
         }
     }
-
+    /**
     componentWillUnmount() {
         window.location.reload();
     }
-
+    **/
     validationSchema() {
         return Yup.object().shape({
             email: Yup.string()
